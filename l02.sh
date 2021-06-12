@@ -21,5 +21,5 @@ bundle config set --local without 'pulsar'
 sudo chown -R $USER /home/$USER
 # bundle install
 # 7
-sudo chown -R $USER /home/$USER
+sudo chown -R $USER /var/canvas
 # yarn install
