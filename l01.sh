@@ -5,6 +5,7 @@
 # sudo chmod +x l01.sh
 # ./l01.sh
 sudo apt update && sudo apt upgrade
+cd
 
 #-------------------------
 # 1. Install Apache
