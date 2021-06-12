@@ -12,7 +12,7 @@
 # or Download: sudo wget https://raw.githubusercontent.com/plx01/lmssetup.sh
 # sudo chmod +x lmssetup.sh
 # Execute the script to setup lms:
-# ./lmssetup,sh
+# ./lmssetup.sh
 ################################################################################
 # sudo groupadd -g 10000 canvasuser
 # sudo groupadd canvasuser
