@@ -18,3 +18,8 @@ sudo cp -R ~/canvas /var  && cd /var/canvas
 # 6
 bundle config set path 'vendor/bundle'
 bundle config set --local without 'pulsar'
+sudo chown -R $USER /home/$USER
+bundle install
+# 7
+sudo chown -R $USER /home/$USER
+yarn install
