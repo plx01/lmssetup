@@ -1,5 +1,8 @@
 #!/bin/bash
-#-------------------------
+################################################################################
+# sudo chmod +x l01.sh
+# Execute the script to setup lms:
+# ./l01.sh#-------------------------
 # 5 Install Canvas
 # 1
 sudo apt-get install git-core
