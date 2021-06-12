@@ -1,10 +1,9 @@
 #!/bin/bash
 ################################################################################
-# sudo chmod +x l01.sh
-# Execute the script to setup lms:
-# ./l01.sh
 # sudo apt install git-core
 # git clone https://github.com/plx01/lmssetup ~/01l
+# sudo chmod +x l01.sh
+# ./l01.sh
 sudo apt update && sudo apt upgrade
 
 #-------------------------
