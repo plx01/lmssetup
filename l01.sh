@@ -4,6 +4,7 @@
 # git clone https://github.com/plx01/lmssetup ~/01l
 # sudo chmod +x l01.sh
 # ./l01.sh
+$OE_USER = "canvas"
 sudo apt update && sudo apt upgrade
 cd
 
