@@ -1,4 +1,7 @@
 #!/bin/bash
+# sudo chmod +x lmslinode.sh
+# Execute the script to setup lms:
+# ./lmslinode.sh
 sudo apt update && sudo apt upgrade
 
 #-------------------------
