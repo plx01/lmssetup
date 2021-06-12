@@ -1,8 +1,8 @@
-
+#!/bin/bash
 sudo apt update && sudo apt upgrade
 
 #-------------------------
-# Install Apache
+# 1. Install Apache
 # 1
 sudo apt install dirmngr gnupg
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 561F9B9CAC40B2F7
@@ -17,7 +17,7 @@ passenger -v
 # 4
 sudo a2enmod passenger rewrite
 #-------------------------
-# Install PostgreSQL
+# 2 Install PostgreSQL
 # 1
 sudo apt-get install postgresql
 # 2
@@ -27,7 +27,8 @@ sudo -u postgres createdb canvas_production --owner=canvas
 # 4
 sudo -u postgres psql -c "alter user $USER with superuser" postgres
 
-# Install Ruby
+#-------------------------
+# 3 Install Ruby
 # 1
 sudo apt install software-properties-common
 sudo add-apt-repository ppa:brightbox/ruby-ng
@@ -37,7 +38,8 @@ sudo apt-get install ruby2.6 ruby2.6-dev zlib1g-dev libxml2-dev libsqlite3-dev p
 # 3
 sudo gem install bundler --version 2.2.17
 
-# Install Node.js and Yarn
+#-------------------------
+# 4 Install Node.js and Yarn
 # 1 Install Node.js.
 curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
 sudo apt-get install nodejs
@@ -47,7 +49,8 @@ curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 sudo apt-get update && sudo apt-get install yarn=1.19.1-1
 
-# Install Canvas
+#-------------------------
+# 5 Install Canvas
 # 1
 sudo apt-get install git-core
 # 2
@@ -60,12 +63,14 @@ sudo cp -R ~/canvas /var  && cd /var/canvas
 # 6
 bundle config set path 'vendor/bundle'
 bundle config set --local without 'pulsar'
+sudo chown -R $USER /var/canvas
 bundle install
 # 7
 sudo chown -R $USER /var/canvas
 yarn install
 
-# Set Up the Canvas Configuration Files
+#-------------------------
+# 6 Set Up the Canvas Configuration Files
 # 1
 for config in amazon_s3 database delayed_jobs domain file_store outgoing_mail security external_migration; do cp config/$config.yml.example config/$config.yml; done
 sudo apt install nano
