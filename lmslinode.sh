@@ -150,6 +150,7 @@ sudo a2dissite 000-default  && sudo systemctl restart apache2
 # sudo a2dissite canvas  && sudo systemctl restart apache2
 # sudo a2ensite canvas  && sudo systemctl restart apache2
 sudo a2dissite canvas  && sudo a2ensite canvas  && sudo systemctl restart apache2
+curl http://phucenter.net/
 # 6
 sudo systemctl restart apache2
 sudo systemctl status apache2.service
