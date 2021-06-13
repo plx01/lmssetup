@@ -19,10 +19,11 @@ sudo sh -c 'echo deb https://oss-binaries.phusionpassenger.com/apt/passenger bio
 sudo apt update
 # 3
 sudo apt-get install -y libapache2-mod-passenger
-sudo apt install -y apache2 apache2-dev passenger
-passenger -v
+sudo apt install -y apache2 apache2-dev passenger  && passenger -v
 # 4
 sudo a2enmod passenger rewrite
+sudo systemctl restart apache2
+
 #-------------------------
 # 2 Install PostgreSQL
 # 1
@@ -53,8 +54,8 @@ sudo apt-get install nodejs
 sudo npm install -g npm@latest
 # 2 Install Yarn, a package manager used in the Canvas installation process.
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 sudo apt-get update && sudo apt-get install yarn=1.19.1-1
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 
 sudo apt-get install python
 
