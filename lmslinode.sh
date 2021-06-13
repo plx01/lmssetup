@@ -1,9 +1,12 @@
 #!/bin/bash
-# sudo chmod +x lmslinode.sh
-# Execute the script to setup lms:
-# ./lmslinode.sh
+################################################################################
+# sudo apt install git-core
+# git clone https://github.com/plx01/lmssetup ~/01l
+# sudo chmod +x ~/01l/lmslinode.sh
+# ~/01/llmslinode.sh
+$OE_USER = "canvas"# ./lmslinode.sh
 sudo apt update && sudo apt upgrade
-
+cd
 #-------------------------
 # 1. Install Apache
 # 1
@@ -19,6 +22,7 @@ sudo apt install -y apache2 apache2-dev passenger
 passenger -v
 # 4
 sudo a2enmod passenger rewrite
+sudo systemctl restart âpche2
 #-------------------------
 # 2 Install PostgreSQL
 # 1
