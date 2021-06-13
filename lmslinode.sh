@@ -121,6 +121,11 @@ RAILS_ENV=production bundle exec rake db:initial_setup
 # sudo chown -R $USER /home/$USER  && sudo chown -R $USER /var/canvas
 sudo adduser --disabled-password --gecos canvas canvasuser
 sudo chown canvasuser config/*.yml  && sudo chmod 400 config/*.yml
+sudo chown canvas config/*.yml  && sudo chmod 400 config/*.yml
+# 0
+sudo a2dismod passenger rewrite
+sudo a2enmod passenger rewrite
+sudo systemctl restart apache2
 # 8
 sudo ln -s /var/canvas/script/canvas_init /etc/init.d/canvas_init
 sudo update-rc.d canvas_init defaults
