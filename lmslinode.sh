@@ -118,12 +118,12 @@ sudo chown -R $USER public/dist/brandable_css
 RAILS_ENV=production bundle exec rake db:initial_setup
 # 7
 # sudo chown -R $USER /home/$USER  && sudo chown -R $USER /var/canvas
-sudo adduser --disabled-password --gecos canvas canvasuser
-sudo chown canvasuser config/*.yml  && sudo chmod 400 config/*.yml
+# sudo adduser --disabled-password --gecos canvas canvasuser
+# sudo chown canvasuser config/*.yml  && sudo chmod 400 config/*.yml
 sudo chown canvas config/*.yml  && sudo chmod 400 config/*.yml
 # 0
-sudo a2dismod passenger rewrite
-sudo a2enmod passenger rewrite
+# sudo a2dismod passenger rewrite
+# sudo a2enmod passenger rewrite
 sudo systemctl restart apache2
 # 8
 sudo ln -s /var/canvas/script/canvas_init /etc/init.d/canvas_init
@@ -132,22 +132,24 @@ sudo /etc/init.d/canvas_init start
 
 # Configure Apache for Canvas
 # 1
-sudo unlink /etc/apache2/sites-enabled/000-default.conf
+# sudo unlink /etc/apache2/sites-enabled/000-default.conf
 # 2-3
+# sudo cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/canvas.conf  && sudo nano /etc/apache2/sites-available/canvas.conf
 git clone https://github.com/plx01/lmssetup ~/01l
-sudo cp ~/01l/canvas.conf /etc/apache2/sites-available/canvas.conf
-sudo nano /etc/apache2/sites-available/canvas.conf
-sudo cp ~/01l/passenger.conf /etc/apache2/mods-available/passenger.conf
-sudo nano /etc/apache2/mods-available/passenger.conf
+sudo cp ~/01l/canvas.conf /etc/apache2/sites-available/canvas.conf  && sudo nano /etc/apache2/sites-available/canvas.conf
+sudo cp ~/01l/passenger.conf /etc/apache2/mods-available/passenger.conf  && sudo nano /etc/apache2/mods-available/passenger.conf
 # 4
 sudo ufw enable  && sudo ufw status
 sudo ufw allow http
-sudo ufw allow https
-sudo ufw deny https
+# sudo ufw allow https
+# sudo ufw deny https
 sudo ufw reload  && sudo ufw status
 # 5
-sudo a2dissite canvas  && sudo systemctl restart apache2
-sudo a2ensite canvas  && sudo systemctl restart apache2
+sudo a2dissite 000-default  && sudo systemctl restart apache2
+# sudo a2ensite 000-default  && sudo systemctl restart apache2
+# sudo a2dissite canvas  && sudo systemctl restart apache2
+# sudo a2ensite canvas  && sudo systemctl restart apache2
+sudo a2dissite canvas  && sudo a2ensite canvas  && sudo systemctl restart apache2
 # 6
 sudo systemctl restart apache2
 sudo systemctl status apache2.service
