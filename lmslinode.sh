@@ -107,6 +107,7 @@ sudo chown -R $USER config/environment.rb log tmp public/assets app/stylesheets/
 # snapshot 2
 yarn install
 # 4
+cd /var/canvas
 RAILS_ENV=production bundle exec rake db:reset_encryption_key_hash
 RAILS_ENV=production bundle exec rake canvas:compile_assets
 # Subsequent Updates (NOT NEEDED FOR INITIAL DEPLOY)
