@@ -122,8 +122,7 @@ RAILS_ENV=production bundle exec rake db:initial_setup
 # sudo chown canvasuser config/*.yml  && sudo chmod 400 config/*.yml
 sudo chown canvas config/*.yml  && sudo chmod 400 config/*.yml
 # 0
-# sudo a2dismod passenger rewrite
-# sudo a2enmod passenger rewrite
+# sudo a2dismod passenger rewrite  && sudo a2enmod passenger rewrite
 sudo systemctl restart apache2
 # 8
 sudo ln -s /var/canvas/script/canvas_init /etc/init.d/canvas_init
@@ -138,12 +137,14 @@ sudo /etc/init.d/canvas_init start
 git clone https://github.com/plx01/lmssetup ~/01l
 sudo cp ~/01l/canvas.conf /etc/apache2/sites-available/canvas.conf  && sudo nano /etc/apache2/sites-available/canvas.conf
 sudo cp ~/01l/passenger.conf /etc/apache2/mods-available/passenger.conf  && sudo nano /etc/apache2/mods-available/passenger.conf
+# sudo a2dismod passenger rewrite  && sudo a2enmod passenger rewrite
+sudo systemctl restart apache2
 # 4
 sudo ufw enable  && sudo ufw status
 sudo ufw allow http
 # sudo ufw allow https
 # sudo ufw deny https
-sudo ufw reload  && sudo ufw status
+# sudo ufw reload  && sudo ufw status
 # 5
 sudo a2dissite 000-default  && sudo systemctl restart apache2
 # sudo a2ensite 000-default  && sudo systemctl restart apache2
