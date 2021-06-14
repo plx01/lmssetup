@@ -144,7 +144,7 @@ sudo ufw enable  && sudo ufw status
 sudo ufw allow http
 # sudo ufw allow https
 # sudo ufw deny https
-# sudo ufw reload  && sudo ufw status
+sudo ufw reload  && sudo ufw status
 # 5
 sudo a2dissite 000-default  && sudo systemctl restart apache2
 # sudo a2ensite 000-default  && sudo systemctl restart apache2
