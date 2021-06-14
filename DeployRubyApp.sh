@@ -34,6 +34,7 @@ rvm use ruby-2.5.1
 # 2.2 Install app dependencies
 exit
 rvm insatall ruby-2.5.0
+rvm --default use ruby-2.5.0
 gem install json -v '1.8.2' --source 'https://rubygems.org/'
 sudo chown myappuser: /var/www/myapp
 sudo -u myappuser -H bash -l
