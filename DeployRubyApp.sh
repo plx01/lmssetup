@@ -72,9 +72,11 @@ exit
 # 3.3 Edit Apache configuration file
 # sudo nano /etc/apache2/sites-enabled/myapp.conf
 # sudo nano /etc/httpd/conf.d/myapp.conf
-git clone https://github.com/plx01/lmssetup ~/02l
-sudo cp ~/02l/myapp.conf /etc/apache2/sites-enabled/myapp.conf
-sudo service apache2 restart && sudo service apache restart
+cd ~/01l/
+git pull
+sudo cp ~/01l/myapp.conf /etc/apache2/sites-enabled/myapp.conf
+sudo service apache restart && 
+sudo service apache2 restart
 
 # 3.4 Test drive
 curl http://phucenter.net/
