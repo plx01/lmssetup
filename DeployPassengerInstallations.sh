@@ -3,6 +3,8 @@
 # Deployment: installations
 # git clone https://github.com/plx01/lmssetup ~/01l
 # sudo cp ~/01l/DeployPassengerInstallations.sh ~/dpi.sh
+# sudo chmod +x ~/dpi.sh
+# sudo ~/dpi.sh
 # -----
 # Installing Ruby with RVM - Debian, Ubuntu
 # Prepare the system
@@ -31,7 +33,7 @@ sudo apt-get install -y nodejs && sudo ln -sf /usr/bin/nodejs /usr/local/bin/nod
 sudo apt-get install apache2
 
 # Install our PGP key and add HTTPS support for APT
-sudo apt-get install -y dirmngr gnupg
+sudo apt-get install -y dirmngr gnupg  && 
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 561F9B9CAC40B2F7
 sudo apt-get install -y apt-transport-https ca-certificates
 
@@ -47,7 +49,7 @@ sudo a2enmod passenger &&
 sudo service apache2 restart
 
 # Step 3: check installation
-sudo /usr/bin/passenger-config validate-install
+sudo /usr/bin/passenger-config validate-install  && 
 sudo /usr/sbin/passenger-memory-stats
 # 12517  83.2 MB   0.6 MB    Passenger watchdog
 # 12520  266.0 MB  3.4 MB    Passenger core
