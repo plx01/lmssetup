@@ -1,6 +1,8 @@
+#!/bin/bash
 # -----
 # Deployment: installations
-sudo cp DeployPassengerInstallations.sh dpi.sh
+# git clone https://github.com/plx01/lmssetup ~/01l
+# sudo cp ~/01l/DeployPassengerInstallations.sh ~/dpi.sh
 # -----
 # Installing Ruby with RVM - Debian, Ubuntu
 # Prepare the system
@@ -13,10 +15,11 @@ curl -sSL https://get.rvm.io | sudo bash -s stable
 # add user 'rvm' group with 'umask usr wx,g=rwx,o=rx'
 sudo usermod -a -G rvm root
 exit
+sudo -u root -H bash -l
 source /etc/profile.d/rvm.sh
 # Install the Ruby version you want
 # rvm install ruby && rvm --default use ruby
-rvm install ruby-2.5.1 && rvm --default use ruby-2.5.1
+rvm install ruby-2.5.0 && rvm --default use ruby-2.5.0
 # Install Bundler: gem install bundler --no-rdoc --no-ri
 gem install bundler
 # Optional: install Node.js if you're using Rails - Ubuntu
