@@ -80,4 +80,8 @@ sudo service apache2 restart
 
 # 3.4 Test drive
 curl http://phucenter.net/
-
+# cd /usr/local/rvm/gems/ruby-2.5.1/gems
+# sudo nano /var/log/apache2/error.log
+# sudo nano /var/log/apache2/myapp_errors.log
+# sudo nano /var/log/apache2/access.log
+# sudo nano /var/log/apache2/myapp_access.log
