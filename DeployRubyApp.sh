@@ -39,7 +39,6 @@ gem install json -v '1.8.2' --source 'https://rubygems.org/'
 sudo chown myappuser: /var/www/myapp
 sudo -u myappuser -H bash -l
 cd /var/www/myapp/code  && 
-bundle install 
+bundle install
 # --path ./vendor/bundle/
 # --deployment --without development test
-
