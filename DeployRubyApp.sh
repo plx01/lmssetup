@@ -47,6 +47,8 @@ exit
 sudo chown myappuser: /var/www/myapp
 sudo -u myappuser -H bash -l
 cd /var/www/myapp/code && 
+sudo nano Gemfile
+# UUncomment # gem 'therubyracer',  platforms: :ruby
 bundle install
 # --path ./vendor/bundle/
 # --deployment --without development test
@@ -72,9 +74,31 @@ exit
 # 3.3 Edit Apache configuration file
 # sudo nano /etc/apache2/sites-enabled/myapp.conf
 # sudo nano /etc/httpd/conf.d/myapp.conf
-cd ~/01l/
-git pull
-sudo cp ~/01l/myapp.conf /etc/apache2/sites-enabled/myapp.conf
+sudo nano /etc/apache2/sites-available/000-default.conf
+cd ~/01l/ && 
+git pull && 
+sudo cp ~/01l/testapp.conf /etc/apache2/sites-available/testapp.conf && 
+sudo nano /etc/apache2/sites-available/testapp.conf
+sudo cp ~/01l/myapp.conf /etc/apache2/sites-available/myapp.conf && 
+sudo nano /etc/apache2/sites-available/myapp.conf
+# sudo cp ~/01l/myapp.conf /etc/apache2/sites-enabled/myapp.conf
+
+sudo a2dissite 000-default && 
+sudo a2ensite testapp && 
+sudo service apache2 restart
+
+sudo a2dissite testapp && 
+sudo a2ensite testapp && 
+sudo service apache2 restart
+
+sudo a2dissite testapp && 
+sudo a2ensite myapp && 
+sudo service apache2 restart
+
+sudo a2dissite myapp && 
+sudo a2ensite testapp && 
+sudo service apache2 restart
+
 sudo service apache restart && 
 sudo service apache2 restart
 
