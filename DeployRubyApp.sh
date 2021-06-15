@@ -1,3 +1,4 @@
+#!/bin/bash
 # Deploying a Ruby app on Digital Ocean production server
 
 # 1 Transferring the app code to the server
